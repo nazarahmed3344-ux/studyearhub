@@ -1,0 +1,752 @@
+Bilkul! Main aapke contact details update karta hun. Line number demo number tha, ab aapka actual number use karenge.
+
+📞 CONTACT DETAILS UPDATE KARNE KA CODE
+
+Step 1: Puri File Replace Karein
+
+```bash
+cd my-website
+rm index.html
+nano index.html
+```
+
+Step 2: Yeh Complete Code Copy-Paste Karein (Aapke Contacts Ke Saath):
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudyGearHub - Best Study Products & Business Opportunities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: #2563eb;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: #4b5563;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            color: #2563eb;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.9), rgba(118, 75, 162, 0.9));
+            color: white;
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+        }
+        
+        .cta-button {
+            background: #dc2626;
+            color: white;
+            padding: 15px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            margin: 5px;
+        }
+        
+        .cta-button:hover {
+            background: #b91c1c;
+        }
+        
+        /* Income Section */
+        .income-section {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #1f2937;
+        }
+        
+        .income-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .income-card {
+            background: #f8fafc;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .income-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .income-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .income-amount {
+            color: #059669;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        .currency-options {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin: 1rem 0;
+        }
+        
+        .currency-btn {
+            padding: 5px 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 5px;
+            background: white;
+            cursor: pointer;
+        }
+        
+        .currency-btn.active {
+            background: #2563eb;
+            color: white;
+        }
+        
+        /* Payment Methods */
+        .payment-section {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+        
+        .payment-methods {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin: 2rem 0;
+        }
+        
+        .payment-method {
+            background: white;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            border: 1px solid #e5e7eb;
+            text-align: center;
+        }
+        
+        /* Products Section */
+        .products {
+            padding: 4rem 0;
+            background: white;
+        }
+        
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background: #e5e7eb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+        }
+        
+        .product-info h4 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price {
+            color: #dc2626;
+            font-size: 1.3rem;
+            font-weight: bold;
+            margin: 0.5rem 0;
+        }
+        
+        .rating {
+            color: #f59e0b;
+            margin: 0.5rem 0;
+        }
+        
+        .buy-button {
+            background: #2563eb;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            width: 100%;
+            cursor: pointer;
+            margin: 0.5rem 0;
+        }
+        
+        .buy-button:hover {
+            background: #1d4ed8;
+        }
+        
+        /* Registration Section */
+        .registration {
+            padding: 4rem 0;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .registration-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+        }
+        
+        /* Help Center */
+        .help-center {
+            padding: 4rem 0;
+            background: #f8fafc;
+        }
+        
+        .contact-methods {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .contact-method {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .whatsapp-btn {
+            background: #25D366;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+        
+        .telegram-btn {
+            background: #0088cc;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            margin: 0.5rem;
+        }
+        
+        /* Footer */
+        .footer {
+            background: #1f2937;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        .current-date {
+            text-align: center;
+            padding: 1rem;
+            background: white;
+            color: #6b7280;
+            font-weight: 500;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">StudyGearHub</div>
+                <div class="nav-links">
+                    <a href="#home">Home</a>
+                    <a href="#income">Income</a>
+                    <a href="#products">Products</a>
+                    <a href="#payment">Payment</a>
+                    <a href="#registration">Register</a>
+                    <a href="#help">Help</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Earn While You Learn</h1>
+            <p>Study Products + Business Opportunities in Multiple Currencies</p>
+            <button class="cta-button" onclick="showWelcome()">Start Earning</button>
+            <button class="cta-button" onclick="showRegistration()">Register Now</button>
+        </div>
+    </section>
+
+    <!-- Income Opportunities Section -->
+    <section class="income-section" id="income">
+        <div class="container">
+            <h2 class="section-title">💰 Income Opportunities</h2>
+            <div class="income-grid">
+                <div class="income-card">
+                    <div class="income-icon">👑</div>
+                    <h3>Affiliate Marketing</h3>
+                    <p>Earn commissions by promoting study products</p>
+                    <div class="income-amount" id="income1">₨5,000 - ₨50,000/month</div>
+                    <div class="currency-options">
+                        <button class="currency-btn active" onclick="changeCurrency(0, 'PKR')">PKR</button>
+                        <button class="currency-btn" onclick="changeCurrency(0, 'USD')">USD</button>
+                        <button class="currency-btn" onclick="changeCurrency(0, 'EUR')">EUR</button>
+                    </div>
+                    <button class="buy-button" onclick="joinAffiliate()">Join Now</button>
+                </div>
+                
+                <div class="income-card">
+                    <div class="income-icon">📦</div>
+                    <h3>Product Reselling</h3>
+                    <p>Resell study materials with 40% profit margin</p>
+                    <div class="income-amount" id="income2">₨10,000 - ₨100,000/month</div>
+                    <div class="currency-options">
+                        <button class="currency-btn active" onclick="changeCurrency(1, 'PKR')">PKR</button>
+                        <button class="currency-btn" onclick="changeCurrency(1, 'USD')">USD</button>
+                        <button class="currency-btn" onclick="changeCurrency(1, 'EUR')">EUR</button>
+                    </div>
+                    <button class="buy-button" onclick="joinReselling()">Start Reselling</button>
+                </div>
+                
+                <div class="income-card">
+                    <div class="income-icon">🎓</div>
+                    <h3>Content Creation</h3>
+                    <p>Create study content and earn from ads</p>
+                    <div class="income-amount" id="income3">₨8,000 - ₨80,000/month</div>
+                    <div class="currency-options">
+                        <button class="currency-btn active" onclick="changeCurrency(2, 'PKR')">PKR</button>
+                        <button class="currency-btn" onclick="changeCurrency(2, 'USD')">USD</button>
+                        <button class="currency-btn" onclick="changeCurrency(2, 'EUR')">EUR</button>
+                    </div>
+                    <button class="buy-button" onclick="joinContent()">Create Content</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment Methods Section -->
+    <section class="payment-section" id="payment">
+        <div class="container">
+            <h2 class="section-title">💳 Payment Methods</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">Multiple currency support available</p>
+            
+            <div class="payment-methods">
+                <div class="payment-method">
+                    <h4>🇵🇰 Pakistani Banks</h4>
+                    <p>JazzCash, EasyPaisa, Bank Transfer</p>
+                </div>
+                <div class="payment-method">
+                    <h4>💵 International</h4>
+                    <p>PayPal, Wise, Payoneer</p>
+                </div>
+                <div class="payment-method">
+                    <h4>🌍 Crypto</h4>
+                    <p>Bitcoin, USDT, EasyPaisa Crypto</p>
+                </div>
+                <div class="payment-method">
+                    <h4>💳 Cards</h4>
+                    <p>Visa, MasterCard, UnionPay</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <div class="container">
+            <h2 class="section-title">🛍️ Featured Products</h2>
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">📚</div>
+                    <div class="product-info">
+                        <h4>Premium Book Set</h4>
+                        <div class="rating">★★★★★</div>
+                        <div class="price">₨2,499</div>
+                        <p>Complete study package for exams</p>
+                        <button class="buy-button" onclick="buyProduct('Premium Book Set')">Buy Now</button>
+                        <button class="buy-button" onclick="becomeAffiliate()">Become Affiliate</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">💻</div>
+                    <div class="product-info">
+                        <h4>Study Tablet</h4>
+                        <div class="rating">★★★★☆</div>
+                        <div class="price">₨15,999</div>
+                        <p>Perfect for online learning</p>
+                        <button class="buy-button" onclick="buyProduct('Study Tablet')">Buy Now</button>
+                        <button class="buy-button" onclick="becomeAffiliate()">Become Affiliate</button>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-image">🎒</div>
+                    <div class="product-info">
+                        <h4>Study Kit</h4>
+                        <div class="rating">★★★★★</div>
+                        <div class="price">₨1,899</div>
+                        <p>Complete stationery package</p>
+                        <button class="buy-button" onclick="buyProduct('Study Kit')">Buy Now</button>
+                        <button class="buy-button" onclick="becomeAffiliate()">Become Affiliate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Registration Section -->
+    <section class="registration" id="registration">
+        <div class="container">
+            <h2 class="section-title" style="color: white;">📝 Registration</h2>
+            <div class="registration-form">
+                <h3 style="text-align: center; margin-bottom: 2rem;">Join Our Business Network</h3>
+                
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name">
+                </div>
+                
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" id="email" placeholder="Enter your email">
+                </div>
+                
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" id="phone" placeholder="+92 XXX XXXXXX">
+                </div>
+                
+                <div class="form-group">
+                    <label>Country</label>
+                    <select id="country">
+                        <option value="pakistan">Pakistan</option>
+                        <option value="usa">USA</option>
+                        <option value="uae">UAE</option>
+                        <option value="uk">UK</option>
+                        <option value="canada">Canada</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label>Business Type</label>
+                    <select id="businessType">
+                        <option value="affiliate">Affiliate Marketer</option>
+                        <option value="reseller">Product Reseller</option>
+                        <option value="content">Content Creator</option>
+                        <option value="student">Student Partner</option>
+                    </select>
+                </div>
+                
+                <button class="cta-button" style="width: 100%;" onclick="submitRegistration()">Register Now</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Help Center -->
+    <section class="help-center" id="help">
+        <div class="container">
+            <h2 class="section-title">🆘 Help Center</h2>
+            <p style="text-align: center; margin-bottom: 2rem;">24/7 Support Available</p>
+            
+            <div class="contact-methods">
+                <div class="contact-method">
+                    <h3>📞 WhatsApp Support</h3>
+                    <p>Instant messaging support</p>
+                    <a href="https://wa.me/923458053308" class="whatsapp-btn" target="_blank">Chat on WhatsApp</a>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>📧 Email Support</h3>
+                    <p>24-hour response time</p>
+                    <button class="buy-button" onclick="emailSupport()">Email Us</button>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>📱 Telegram</h3>
+                    <p>Direct messaging</p>
+                    <a href="https://t.me/nazarmazari" class="telegram-btn" target="_blank">Message on Telegram</a>
+                </div>
+                
+                <div class="contact-method">
+                    <h3>🆘 Emergency</h3>
+                    <p>Urgent issues resolution</p>
+                    <button class="buy-button" onclick="emergencySupport()">Emergency Support</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Date -->
+    <div class="current-date">
+        <div class="container">
+            📅 Today's Date: <strong id="currentDate"></strong> | 💰 Supported Currencies: PKR, USD, EUR, AED, SAR
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2024 StudyGearHub. All rights reserved.</p>
+            <p>📞 Support: +92-345-8053308 | 📧 Email: nazarahmed3344@gmail.com | 📱 Telegram: @nazarmazari</p>
+            <p>🌍 Serving: Pakistan, USA, UAE, UK, Canada, and 50+ countries</p>
+        </div>
+    </footer>
+
+    <!-- Advanced Business Script -->
+    <script>
+        // Currency Conversion Rates
+        const exchangeRates = {
+            'PKR': { symbol: '₨', rate: 1 },
+            'USD': { symbol: '$', rate: 280 },
+            'EUR': { symbol: '€', rate: 300 },
+            'AED': { symbol: 'AED', rate: 76 },
+            'SAR': { symbol: 'SR', rate: 75 }
+        };
+
+        // Income amounts in PKR
+        const incomeAmounts = [
+            { min: 5000, max: 50000 }, // Affiliate
+            { min: 10000, max: 100000 }, // Reselling
+            { min: 8000, max: 80000 } // Content
+        ];
+
+        // Current date
+        document.getElementById('currentDate').textContent = new Date().toLocaleDateString();
+
+        // Currency conversion function
+        function changeCurrency(cardIndex, currency) {
+            const incomeElement = document.getElementById('income' + (cardIndex + 1));
+            const buttons = document.querySelectorAll('.currency-options')[cardIndex].querySelectorAll('.currency-btn');
+            
+            // Update active button
+            buttons.forEach(btn => btn.classList.remove('active'));
+            buttons.forEach(btn => {
+                if (btn.textContent === currency) btn.classList.add('active');
+            });
+            
+            // Convert amount
+            const rate = exchangeRates[currency].rate;
+            const symbol = exchangeRates[currency].symbol;
+            const minAmount = Math.round(incomeAmounts[cardIndex].min / rate);
+            const maxAmount = Math.round(incomeAmounts[cardIndex].max / rate);
+            
+            incomeElement.textContent = `${symbol}${minAmount} - ${symbol}${maxAmount}/month`;
+        }
+
+        // Business functions
+        function showWelcome() {
+            alert('🎓 Welcome to StudyGearHub Business Platform!\nStart earning today with multiple income streams.');
+        }
+
+        function showRegistration() {
+            document.getElementById('registration').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function joinAffiliate() {
+            alert('🤝 Affiliate Program\nCommission: 15-30%\nPayout: Weekly\nMinimum: $10');
+        }
+
+        function joinReselling() {
+            alert('📦 Reseller Program\nProfit Margin: 40%\nMOQ: 10 units\nSupport: Full training');
+        }
+
+        function joinContent() {
+            alert('🎥 Content Creator Program\nEarnings: $50-$500 per content\nPlatform: YouTube/Instagram\nSupport: Equipment provided');
+        }
+
+        function buyProduct(productName) {
+            alert(`🛒 ${productName}\nAdded to cart!\nProceed to checkout.`);
+        }
+
+        function becomeAffiliate() {
+            alert('👑 Become an Affiliate\nEarn 20% commission on every sale\nNo investment required\nStart immediately');
+        }
+
+        function submitRegistration() {
+            const name = document.getElementById('fullName').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const country = document.getElementById('country').value;
+            const businessType = document.getElementById('businessType').value;
+            
+            if (name && email && phone) {
+                alert(`✅ Registration Successful!\n\nName: ${name}\nEmail: ${email}\nPhone: ${phone}\nCountry: ${country}\nBusiness: ${businessType}\n\nWe will contact you within 24 hours.`);
+                
+                // Reset form
+                document.getElementById('fullName').value = '';
+                document.getElementById('email').value = '';
+                document.getElementById('phone').value = '';
+            } else {
+                alert('❌ Please fill all required fields.');
+            }
+        }
+
+        function emailSupport() {
+            alert('📧 Email: nazarahmed3344@gmail.com\nWe respond within 24 hours.');
+        }
+
+        function emergencySupport() {
+            alert('🆘 Emergency Support\nCall: +92-345-8053308\nAvailable 24/7 for urgent issues');
+        }
+    </script>
+</body>
+</html>
+```
+
+Step 3: Save & Upload Karein
+
+```bash
+Ctrl + O → Enter → Ctrl + X
+
+git add .
+git commit -m "Added all contact details: WhatsApp, Email, Telegram"
+git push
+```
+
+✅ APKE CONTACT DETAILS ADD HO GAYE:
+
+· ✅ WhatsApp: +92-345-8053308
+· ✅ Email: nazarahmed3344@gmail.com
+· ✅ Telegram: @nazarmazari
+· ✅ Emergency: +92-345-8053308
+
+🚀 AB TEST KAREN:
+
+1. Server start karein:
+
+```bash
+python -m http.server 9000
+```
+
+1. Browser check karein:
+
+```
+http://localhost:9000
+```
+
+1. Contact buttons test karein:
+
+· WhatsApp button click karein (WhatsApp app open hogi)
+· Email button click karein (alert mein email dikhegi)
+· Telegram button click karein (Telegram open hogi)
+
+📱 FEATURES READY:
+
+· 💰 Multi-currency income options
+· 💳 Payment methods
+· 📝 Registration form
+· 📞 Contact options (WhatsApp, Email, Telegram)
+· 🌍 Multi-country support
+
+Kya aap ready hain ye code copy-paste karne ke liye? Agar haan to batayein, main aapko next steps batata hun!
